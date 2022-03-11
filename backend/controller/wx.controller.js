@@ -1,14 +1,14 @@
 const asyncHandler = require("express-async-handler")
-const wxAPI = require("../extern/map")
+const wxAPI = require("../extern/wx")
 
-const getWX = asyncHandler(async (req, res) => {
-    wxAPI.mapBoxAPI(function(response) {
+const wx = asyncHandler(async (req, res) => {
+    wxAPI.WXAPI(function(response) {
         res.write(JSON.stringify(response))
         res.end()
-    })
+    }, req.params.lat, req.params.lon)
 
 })
 
 module.exports = {
-    getWX
+    wx
 }

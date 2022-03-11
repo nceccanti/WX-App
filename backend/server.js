@@ -10,6 +10,7 @@ const app = express()
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 app.use('/api/users', require('./routes/user.route'))
+app.use('/api/road', require('./routes/road.route'))
 app.use('/api/wx', require('./routes/wx.route'))
 
 app.use(errorHandler)
